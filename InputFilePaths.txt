@@ -1,0 +1,4 @@
+/home/loggityloglog/Downloads/2k-0.5k/training2000_LINUX.csv
+/home/loggityloglog/Downloads/2k-0.5k/testing500_LINUX.csv
+/home/loggityloglog/Downloads/2k-0.5k/testing_sentiment500_LINUX.csv
+outputFileee.txt
