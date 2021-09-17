@@ -15,9 +15,7 @@ chmod +x gradingScript.sh
 This makes the script executable.
 
 ## Execution of the script
-The script demands a single command line argument, that argument being the name of the executable. This should be the same for all students, assuming they do not extensively edit the CmakeLists.txt file. For example, the first project can be run with the sript like so:
+Since the addition of the main.py file, there is no need for arguments sent to the script. The script will handle executable names on its own. Running the script only takes a single command:
 ```
-./gradingScript.sh pa01_sentiment
+./gradingScript.sh
 ```
-If a student changes the executable, then you must run that program independently. Support for different executable names will come in the future.
-
