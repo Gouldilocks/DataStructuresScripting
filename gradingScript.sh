@@ -1,5 +1,4 @@
 #!/bin/bash
-execname=$1
 # Get the arguments for the executables
 args=''
 echo "RETRIEVING ARGS FROM InputFilesPaths.txt"
@@ -28,7 +27,13 @@ cd $project
 cmake .
 make
 start=$(date +%s)
-echo "RUNNING: ./$execname$args"
+workDire=$PWD
+workDire+="/CMakeLists.txt"
+echo "path sent to python is: $workDire"
+python3 ../../main.py "$workDire"
+execname="$(head -1 ../../executableName.txt)"
+echo "found executable name: $execname"
+echo "RUNNING: $PWD/$execname$args"
 ./$execname$args
 end=$(date +%s)
 runtime=$(($end-$start))
