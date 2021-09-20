@@ -35,6 +35,8 @@ execname="$(head -1 ../../executableName.txt)"
 echo "found executable name: $execname"
 echo "RUNNING: $PWD/$execname$args"
 ./$execname$args
+echo "Running Catch now"
+./$execname
 end=$(date +%s)
 runtime=$(($end-$start))
 echo "Runtime for: $project = $runtime seconds" >> ../../timings.txt
