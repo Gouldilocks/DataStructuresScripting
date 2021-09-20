@@ -46,6 +46,8 @@
     ./$execname$args
     end=$(date +%s)
     runtime=$(($end-$start))
+    echo "Running Catch now"
+    ./$execname
 
     # Print runtime to timings.txt
     echo "Runtime for: $project = $runtime seconds" >> ../../timings.txt
