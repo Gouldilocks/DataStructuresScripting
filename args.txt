@@ -1,4 +1,2 @@
-/home/christiangould/Downloads/20k-10k/training_LINUX.csv
-/home/christiangould/Downloads/20k-10k/testing_LINUX.csv
-/home/christiangould/Downloads/20k-10k/testing_sentiment_LINUX.csv
-outputFileee.txt
+~/Downloads/InputFiles/test_book_easy_UNIX.txt
+outputFileForGouldilocks.txt

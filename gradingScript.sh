@@ -8,7 +8,17 @@
         args+=" $line"
         echo "Text read from file: $line"
     done < args.txt
-    echo "args received are: $args"
+    echo "easy Args received are: $args"
+    
+    hardargs=''
+    echo "RETRIEVING ARGS FROM hardArgs.txt"
+    # Pull from file line by line, adding onto hardargs variable each iteration
+    while IFS= read -r line; do
+        hardargs+=" $line"
+        echo "Text read from file: $line"
+    done < hardArgs.txt
+    echo "easy Args received are: $hardargs"
+    
 
 # Clone all projects from the students
     # Remove projects folder if it exists, then replace it
@@ -22,7 +32,7 @@
     done < ../GitRepos.txt
     cd ..
 
-# Run Cmake and Make on all projects, and then run them
+# Run Cmake and Make on all projects, and then run them with both easy and hard args
     cd projects
     for project in *; do
     echo "Project name: $project"
@@ -41,12 +51,17 @@
     echo "found executable name: $execname"
 
     # Run the executable found with and without arguments, using start and end for timing info
-    echo "RUNNING: $PWD/$execname$args"
+    echo "RUNNING: $PWD/$execname$args with easy dataset"
+    echo "---------------------------------------------"
     start=$(date +%s)
     ./$execname$args
     end=$(date +%s)
     runtime=$(($end-$start))
+    echo "Running hard args now"
+    echo "---------------------------------------------"
+    ./$execname$hardargs
     echo "Running Catch now"
+    echo "---------------------------------------------"
     ./$execname
 
     # Print runtime to timings.txt
