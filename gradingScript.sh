@@ -51,18 +51,31 @@
     echo "found executable name: $execname"
 
     # Run the executable found with and without arguments, using start and end for timing info
-    echo "RUNNING: $PWD/$execname$args with easy dataset"
+    echo "RUNNING: $PWD/$execname$args"
+    echo "---------------------------------------------" 
+    echo "Running with easy dataset"
     echo "---------------------------------------------"
     start=$(date +%s)
-    ./$execname$args
+    ./$execname$args &
+    TASK_PID=$!
+    sleep 10
+    kill $TASK_PID
     end=$(date +%s)
     runtime=$(($end-$start))
+    echo "---------------------------------------------"
     echo "Running hard args now"
     echo "---------------------------------------------"
-    ./$execname$hardargs
+    ./$execname$hardargs &
+    TASK_PID=$!
+    sleep 10
+    kill $TASK_PID
+    echo "---------------------------------------------"
     echo "Running Catch now"
     echo "---------------------------------------------"
-    ./$execname
+    ./$execname &
+    TASK_PID=$!
+    sleep 10
+    kill $TASK_PID
 
     # Print runtime to timings.txt
     echo "Runtime for: $project = $runtime seconds" >> ../../timings.txt
