@@ -1,5 +1,26 @@
 #!/bin/bash
 
+# Check for dependencies and install if not found
+	# Check for Valgrind
+	if ! command -v <valgrind> &> /dev/null
+	then
+		# Install if not found
+		sudo apt-get -y install valgrind
+	fi
+	# Check for Git
+	if ! command -v <git> &> /dev/null
+	then
+		# Install if not found
+		sudo apt-get -y install git
+	fi
+	# Check for Cmake
+	if ! command -v <cmake> &> /dev/null
+	then
+		# Install if not found
+		sudo apt-get -y install cmake
+	fi
+
+
 # Get the arguments for the executables
     args=''
     echo "RETRIEVING ARGS FROM args.txt"
@@ -56,26 +77,17 @@
     echo "Running with easy dataset"
     echo "---------------------------------------------"
     start=$(date +%s)
-    ./$execname$args &
-    TASK_PID=$!
-    sleep 10
-    kill $TASK_PID
+    timeout 5s ./$execname$args
     end=$(date +%s)
     runtime=$(($end-$start))
     echo "---------------------------------------------"
     echo "Running hard args now"
     echo "---------------------------------------------"
-    ./$execname$hardargs &
-    TASK_PID=$!
-    sleep 10
-    kill $TASK_PID
+    timeout 5s ./$execname$hardargs
     echo "---------------------------------------------"
     echo "Running Catch now"
     echo "---------------------------------------------"
-    ./$execname &
-    TASK_PID=$!
-    sleep 10
-    kill $TASK_PID
+    ./$execname
 
     # Print runtime to timings.txt
     echo "Runtime for: $project = $runtime seconds" >> ../../timings.txt

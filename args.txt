@@ -1,2 +1,2 @@
-~/Downloads/InputFiles/test_book_easy_UNIX.txt
-outputFileForGouldilocks.txt
+/home/loggityloglog/Downloads/InputFiles/test_book_easy_UNIX.txt
+outputFileEasyGouldilocks.txt
