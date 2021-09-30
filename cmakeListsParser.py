@@ -1,7 +1,7 @@
 import os
 import sys
 
-
+# Parser which searches the Cmakelists.txt file for the name of the executable, and puts it into executableName.txt
 def main():
     print("Starting Python Script")
     filepath = sys.argv[1]
