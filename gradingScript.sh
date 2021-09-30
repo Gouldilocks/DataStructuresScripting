@@ -2,19 +2,25 @@
 
 # Check for dependencies and install if not found
 	# Check for Valgrind
-	if ! command -v <valgrind> &> /dev/null
+	valgrind="available"
+	available="available"
+	if ! [ -x "$(command -v valgrind)" ];
 	then
-		# Install if not found
-		sudo apt-get -y install valgrind
-	fi
+	    # Notify user that valgrind is not installed
+	    echo "---------------------------------------------"
+	    echo "Valgrind is not installed, not running valgrind commands"
+	    echo "To install on linux, use the command: sudo apt-get install valgrind"
+	    echo "---------------------------------------------"
+	    valgrind="notavailable"
+    	fi
 	# Check for Git
-	if ! command -v <git> &> /dev/null
+	if ! [ -x "$(command -v git)" ];
 	then
 		# Install if not found
 		sudo apt-get -y install git
 	fi
 	# Check for Cmake
-	if ! command -v <cmake> &> /dev/null
+	if ! [ -x "$(command -v cmake)" ];
 	then
 		# Install if not found
 		sudo apt-get -y install cmake
@@ -88,7 +94,16 @@
     echo "Running Catch now"
     echo "---------------------------------------------"
     ./$execname
-
+    if [ "$valgrind" == "$available" ]; then
+    echo "---------------------------------------------"
+    echo "Running Valgrind on easy args now"
+    echo "---------------------------------------------"
+    timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$execname$args >> ./valgrindRun.txt
+    echo "---------------------------------------------"
+    echo "Running Valgrind on hard args now"
+    echo "---------------------------------------------"
+    timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$execname$hardargs >> ./valgrindHardRun.txt    
+    fi
     # Print runtime to timings.txt
     echo "Runtime for: $project = $runtime seconds" >> ../../timings.txt
 
