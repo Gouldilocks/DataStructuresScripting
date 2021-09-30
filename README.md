@@ -6,7 +6,7 @@ If you are not running on a mac or linux machine, figure it out with powershell 
 
 In "GitRepos.txt", you need to put clone links to each of the student's repositories, separated by newlines. An example of this format is in the repo
 
-In "InputFilePaths.txt", you need to put the command line arguments that are to be sent to the program in the order they are to be sent, separating each by newline. An example of this is in the repo
+In "args.txt", you need to put the command line arguments that are to be sent to the program in the order they are to be sent, separating each by newline. An example of this is in the repo. For project 2, the ability to run 2 types of args has been added, add those arguments to hardArgs.txt.
 
 You must give permissions to the script to be run. Do so by cloning the repo, and then while in the cloned repository's directory, type:
 ```
