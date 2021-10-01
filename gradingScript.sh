@@ -98,11 +98,11 @@
     echo "---------------------------------------------"
     echo "Running Valgrind on easy args now"
     echo "---------------------------------------------"
-    timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$execname$args >> ./valgrindRun.txt
+    timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrindEasyArgs.txt ./$execname$args
     echo "---------------------------------------------"
     echo "Running Valgrind on hard args now"
     echo "---------------------------------------------"
-    timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrind-out.txt ./$execname$hardargs >> ./valgrindHardRun.txt    
+    timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrindHardArgs.txt ./$execname$hardargs    
     fi
     # Print runtime to timings.txt
     echo "Runtime for: $project = $runtime seconds" >> ../../timings.txt
