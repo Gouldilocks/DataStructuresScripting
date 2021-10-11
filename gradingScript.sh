@@ -23,6 +23,7 @@
 	if ! [ -x "$(command -v cmake)" ];
 	then
 		# Install if not found
+        echo "installing cmake for you, why do you not have this??"
 		sudo apt-get -y install cmake
 	fi
 
@@ -33,19 +34,8 @@
     # Pull from file line by line, adding onto args variable each iteration
     while IFS= read -r line; do
         args+=" $line"
-        echo "Text read from file: $line"
-    done < args.txt
-    echo "easy Args received are: $args"
-    
-    hardargs=''
-    echo "RETRIEVING ARGS FROM hardArgs.txt"
-    # Pull from file line by line, adding onto hardargs variable each iteration
-    while IFS= read -r line; do
-        hardargs+=" $line"
-        echo "Text read from file: $line"
-    done < hardArgs.txt
-    echo "easy Args received are: $hardargs"
-    
+    done < ./configs/args.txt
+    echo "easy Args received are: $args"    
 
 # Clone all projects from the students
     # Remove projects folder if it exists, then replace it
@@ -56,7 +46,7 @@
     while IFS= read -r line; do
         echo "Cloning: $line"
         git clone $line
-    done < ../GitRepos.txt
+    done < ../dontTouchMe/GitRepos.txt
     cd ..
 
 # Run Cmake and Make on all projects, and then run them with both easy and hard args
@@ -74,38 +64,30 @@
     workDire+="/CMakeLists.txt"
     echo "path sent to python is: $workDire"
     python3 ../../cmakeListsParser.py "$workDire"
-    execname="$(head -1 ../../executableName.txt)"
+    execname="$(head -1 ../../dontTouchMe/executableName.txt)"
     echo "found executable name: $execname"
 
     # Run the executable found with and without arguments, using start and end for timing info
     echo "RUNNING: $PWD/$execname$args"
     echo "---------------------------------------------" 
-    echo "Running with easy dataset"
+    echo "Running with dataset"
     echo "---------------------------------------------"
     start=$(date +%s)
     timeout 5s ./$execname$args
     end=$(date +%s)
     runtime=$(($end-$start))
     echo "---------------------------------------------"
-    echo "Running hard args now"
-    echo "---------------------------------------------"
-    timeout 5s ./$execname$hardargs
-    echo "---------------------------------------------"
     echo "Running Catch now"
     echo "---------------------------------------------"
     ./$execname
     if [ "$valgrind" == "$available" ]; then
     echo "---------------------------------------------"
-    echo "Running Valgrind on easy args now"
+    echo "Running Valgrind now"
     echo "---------------------------------------------"
     timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrindEasyArgs.txt ./$execname$args
-    echo "---------------------------------------------"
-    echo "Running Valgrind on hard args now"
-    echo "---------------------------------------------"
-    timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrindHardArgs.txt ./$execname$hardargs    
     fi
-    # Print runtime to timings.txt
-    echo "Runtime for: $project = $runtime seconds" >> ../../timings.txt
+    # Print runtime to timingData.txt
+    echo "Runtime for: $project = $runtime seconds" >> ../../timingData.txt
 
     # Change dir to outside of project directory
     cd ..

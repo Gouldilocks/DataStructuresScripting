@@ -1,0 +1,19 @@
+[c]
+central concept: 1
+ceo: 4
+consumer packaged goods: 3
+customer: 1
+[m]
+managers: 3
+[n]
+non-tech: 2, 3
+[p]
+packaged: 3
+product manager: 4
+product managers of these non-tech products: 3
+product team: 1
+products: 2, 3
+[r]
+resources: 3
+[s]
+startup co-founder: 4
