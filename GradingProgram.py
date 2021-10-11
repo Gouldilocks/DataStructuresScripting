@@ -48,9 +48,9 @@ githubRepos.close()
 
 # Run the git puller and cmake project runner
 print("Starting the cmake project runner, will start by pulling from git")
-subprocess.call('./gradingScript.sh')
+subprocess.call('./src/gradingScript.sh')
 
 # Run the grading assistant
-import canvasGrader
+import src.canvasGrader
 
 print("Grading Program Has Finished.")

@@ -102,15 +102,17 @@ for student, github in zip(students, studentGithubs):
   try:
     studentOut = open('./projects/' + SEMESTER + "-" + ASSIGNMENT_TO_GRADE.replace(" ", "").lower() + "-" + github + "/" + outFile[0: -1])
     realOut = open('./configs/desiredOutput.txt')
-    text1 = studentOut.read()
-    text2 = realOut.read()
+    text1 = realOut.read()
+    text2 = studentOut.read()
     studentOut.close()
     realOut.close()
+    # Run the sequence Matcher to get percentage
     m = SequenceMatcher(None, text1, text2)
     studentOut = open('./projects/' + SEMESTER + "-" + ASSIGNMENT_TO_GRADE.replace(" ", "").lower() + "-" + github + "/" + outFile[0: -1])
     realOut = open('./configs/desiredOutput.txt')
-    text1 = studentOut.readlines()
-    text2 = realOut.readlines()
+    text1 = realOut.readlines()
+    text2 = studentOut.readlines()
+    # Run the differ object to get differences in texts
     d = Differ()
     result = list(d.compare(text1, text2))
     pprint(result)
