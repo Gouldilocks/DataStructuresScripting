@@ -1,6 +1,7 @@
 All files in this folder are files which you must edit in order to run the program properly.
 
 apiKey.txt - You must put the api key for canvas in this text file.
+  THIS FILE IS ONE WHICH YOU MUST CREATE
   This file should NOT change from project to project.
   Just paste it in with nothing else in the text file, not even a new line.
   the key wil be a hash code of some sort.
