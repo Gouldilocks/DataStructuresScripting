@@ -27,6 +27,7 @@ try:
   studentFile = open('./configs/studentNames.txt', 'r')
   for line in studentFile:
     line = line.rstrip('\n')
+    line = line.rstrip('\t')
     both = line.split(',')
     studentNames.append(both[0])
     studentGithubs.append(both[1])
@@ -38,9 +39,13 @@ except:
   print("Problem getting students. Make sure all your config files are correct and try again.")
 
 # Write to the github links file
-START_OF_LINK = 'https://github.com/SMUCSE2341/' + SEMESTER.replace(' ', '').lower() + '-' + ASSIGNMENT_TO_GRADE.replace(' ','').lower() + '-'
+START_OF_LINK = 'https://github.com/SMUCSE2341/' + SEMESTER.replace(' ', '').lower().rstrip('\n') + '-' + ASSIGNMENT_TO_GRADE.replace(' ','').lower().rstrip('\n') + '-'
+START_OF_LINK = START_OF_LINK.rstrip('\n')
 githubRepos = open('./dontTouchMe/GitRepos.txt', 'w')
 for ghName in studentGithubs:
+  print("DEBUGGING: ")
+  print(START_OF_LINK)
+  print(ghName.rstrip('\n'))
   githubRepos.write(START_OF_LINK + ghName + '.git')
   if(ghName != studentGithubs[-1]):
     githubRepos.write('\n')
