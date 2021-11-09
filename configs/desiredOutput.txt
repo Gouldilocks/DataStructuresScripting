@@ -1,19 +1,77 @@
-[c]
-central concept: 1
-ceo: 4
-consumer packaged goods: 3
-customer: 1
-[m]
-managers: 3
-[n]
-non-tech: 2, 3
-[p]
-packaged: 3
-product manager: 4
-product managers of these non-tech products: 3
-product team: 1
-products: 2, 3
-[r]
-resources: 3
-[s]
-startup co-founder: 4
+Flight 1: LosAngeles, Washington, C
+  Itinerary 1: 
+    LosAngeles -> Denver (Spirit)
+    Denver -> Washington (United)
+    Totals for Itinerary 1: Time: 380 Cost: 353
+  Itinerary 2: 
+    LosAngeles -> Denver (Spirit)
+    Denver -> Chicago (American)
+    Chicago -> Washington (Spirit)
+    Totals for Itinerary 2: Time: 475 Cost: 366
+  Itinerary 3: 
+    LosAngeles -> Denver (Spirit)
+    Denver -> Minneapolis (American)
+    Minneapolis -> Chicago (Spirit)
+    Chicago -> Washington (Spirit)
+    Totals for Itinerary 3: Time: 428 Cost: 409
+Flight 2: NewOrleans, Chicago, C
+  Itinerary 1: 
+    NewOrleans -> Washington (Spirit)
+    Washington -> Chicago (Spirit)
+    Totals for Itinerary 1: Time: 308 Cost: 278
+  Itinerary 2: 
+    NewOrleans -> Miami (Spirit)
+    Miami -> Chicago (American)
+    Totals for Itinerary 2: Time: 475 Cost: 278
+  Itinerary 3: 
+    NewOrleans -> Miami (Spirit)
+    Miami -> Washington (United)
+    Washington -> Chicago (Spirit)
+    Totals for Itinerary 3: Time: 360 Cost: 311
+Flight 3: Miami, NewYork, T
+  Itinerary 1: 
+    Miami -> Washington (United)
+    Washington -> NewYork (United)
+    Totals for Itinerary 1: Time: 233 Cost: 223
+  Itinerary 2: 
+    Miami -> Washington (United)
+    Washington -> Chicago (Spirit)
+    Chicago -> NewYork (Spirit)
+    Totals for Itinerary 2: Time: 378 Cost: 346
+  Itinerary 3: 
+    Miami -> NewOrleans (Spirit)
+    NewOrleans -> Washington (Spirit)
+    Washington -> NewYork (United)
+    Totals for Itinerary 3: Time: 458 Cost: 326
+Flight 4: Seattle, NewYork, T
+  Itinerary 1: 
+    Seattle -> NewYork (Spirit)
+    Totals for Itinerary 1: Time: 260 Cost: 310
+  Itinerary 2: 
+    Seattle -> Denver (American)
+    Denver -> Minneapolis (American)
+    Minneapolis -> Chicago (Spirit)
+    Chicago -> NewYork (Spirit)
+    Totals for Itinerary 2: Time: 576 Cost: 549
+  Itinerary 3: 
+    Seattle -> Phoenix (United)
+    Phoenix -> Denver (Spirit)
+    Denver -> Minneapolis (American)
+    Minneapolis -> Chicago (Spirit)
+    Chicago -> NewYork (Spirit)
+    Totals for Itinerary 3: Time: 583 Cost: 572
+Flight 5: Phoenix, Minneapolis, T
+  Itinerary 1: 
+    Phoenix -> Denver (Spirit)
+    Denver -> Minneapolis (American)
+    Totals for Itinerary 1: Time: 195 Cost: 213
+  Itinerary 2: 
+    Phoenix -> Denver (Spirit)
+    Denver -> Chicago (American)
+    Chicago -> Minneapolis (Spirit)
+    Totals for Itinerary 2: Time: 435 Cost: 276
+  Itinerary 3: 
+    Phoenix -> Dallas (Spirit)
+    Dallas -> Denver (American)
+    Denver -> Minneapolis (American)
+    Totals for Itinerary 3: Time: 443 Cost: 431

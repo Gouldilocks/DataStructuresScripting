@@ -1,2 +1,3 @@
-/home/loggityloglog/Downloads/InputFiles/test_book_easy_UNIX.txt
+/Users/christiangould/Downloads/PA04/f.txt
+/Users/christiangould/Downloads/PA04/r.txt
 outputFileEasyGouldilocks.txt
