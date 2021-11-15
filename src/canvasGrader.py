@@ -7,7 +7,7 @@ from pprint import pprint
 constantsFile = open('./configs/constants.txt', 'r')
 constants = constantsFile.readlines()
 both = constants[1].split('=')
-ASSIGNMENT_TO_GRADE = both[1] #'PA 02' at time of writing
+ASSIGNMENT_TO_GRADE = both[1].rstrip('\n') #'PA 02' at time of writing
 both = constants[0].split('=')
 SEMESTER = both[1].strip('\n') #'21f' at time of writing
 print('constants received: '+ ASSIGNMENT_TO_GRADE + ',' + SEMESTER)
