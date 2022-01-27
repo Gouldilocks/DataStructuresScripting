@@ -1,3 +1,3 @@
-/Users/christiangould/Downloads/PA04/f.txt
-/Users/christiangould/Downloads/PA04/r.txt
+/Users/christiangould/Downloads/f.txt
+/Users/christiangould/Downloads/r.txt
 outputFileEasyGouldilocks.txt
