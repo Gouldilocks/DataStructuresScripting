@@ -1,3 +1,4 @@
-/Users/christiangould/Downloads/f.txt
-/Users/christiangould/Downloads/r.txt
-outputFileEasyGouldilocks.txt
+TrainingDataSetFilePath
+TestingDataSetFilePath
+TestingDataSetSentimentFilePath
+FinalOutputFile.txt
