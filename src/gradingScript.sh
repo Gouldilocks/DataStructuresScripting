@@ -17,14 +17,14 @@
 	if ! [ -x "$(command -v git)" ];
 	then
 		# Install if not found
-		sudo apt-get -y install git
+		apt-get -y install git
 	fi
 	# Check for Cmake
 	if ! [ -x "$(command -v cmake)" ];
 	then
 		# Install if not found
         echo "installing cmake for you, why do you not have this??"
-		sudo apt-get -y install cmake
+	  apt-get -y install cmake
 	fi
 
 
@@ -39,7 +39,7 @@
 
 # Clone all projects from the students
     # Remove projects folder if it exists, then replace it
-    sudo rm -r projects
+    rm -r projects
     mkdir projects
     cd projects
     # Pulls from file line by line, then clones the repo pulled from the file
