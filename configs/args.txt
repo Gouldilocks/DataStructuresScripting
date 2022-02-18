@@ -1,0 +1,4 @@
+TrainingDataSetFilePath
+TestingDataSetFilePath
+TestingDataSetSentimentFilePath
+FinalOutputFile.txt

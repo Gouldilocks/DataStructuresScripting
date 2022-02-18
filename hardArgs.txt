@@ -1,2 +1,0 @@
-/home/loggityloglog/Downloads/InputFiles/test_book_edge_UNIX.txt
-outputFilehardForGouldilocks.txt

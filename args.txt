@@ -1,2 +1,0 @@
-/home/loggityloglog/Downloads/InputFiles/test_book_easy_UNIX.txt
-outputFileEasyGouldilocks.txt
