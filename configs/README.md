@@ -1,4 +1,4 @@
-*If you are only running the programs, you must only edit 2 files
+*If you are only running the programs, you need only edit 2 files*
 
 ## GitRepos.txt
 - This file should contain all the .git http links to all of the github repositories of all your students
