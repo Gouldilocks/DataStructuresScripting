@@ -1,11 +1,5 @@
 # DataStructuresScripting
 Script used for quicker grading of data scructures students' projects
- 
-NOTE: If you would like to use the experimental canvas-integrated version, clone the repo and then use
-```
-git checkout experimental
-```
-to change to that version.
 
 ## Setup
 If you are not running on a mac or linux machine, figure it out with powershell or something. Windows is bad. Anyways:
@@ -37,9 +31,3 @@ python3 GradingProgram.py
 ```
 ## Timing Data
 The addition of timing data for each of the projects has been added, allowing for timing data to be acquired. It is in a file named timings.txt. The data only takes into account full seconds. If more precise timing data is needed, then using linux's "time" in terminal is a better option for sub-second precision.
-
-## Valgrind Data
-ValgrindData has been added, and a text file will be made with the run of valgrind in the studen't project folder. If valgrind is not found on the system, a warning message will be sent to the console, and valgrind will not run. To install valgrind on a linux system, type:
-```
-sudo apt-get install valgrind
-```
