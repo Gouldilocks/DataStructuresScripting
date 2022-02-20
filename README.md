@@ -25,6 +25,8 @@ pip install canvasapi
 ```
 
 ## Execution of the script
+BEFORE RUNNING, YOU NEED TO EDIT THE CONFIG FILES!
+There is a small readme in /configs. You need only edit 2 files if all you want to do is run the programs
 Since the addition of the python scrips, there is no need for arguments sent to the script. The script will handle executable names on its own. Running the script only takes a single command:
 ```
 python3 GradingProgram.py
