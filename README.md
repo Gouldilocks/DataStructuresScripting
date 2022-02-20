@@ -10,8 +10,8 @@ to change to that version.
 ## Setup
 If you are not running on a mac or linux machine, figure it out with powershell or something. Windows is bad. Anyways:
 
-For setup, you must edit all of the config files in configs/
-a small text file with directions on how to edit them is in configs/configsREADME.txt
+For setup, you must edit the config files in configs/
+a readme file with directions on how to edit them is in configs/configsREADME.txt
 Follow those directions and then follow the below instructions.
 
 You must give permissions to the script to be run. Do so by cloning the repo, and then while in the cloned repository's directory, type:
