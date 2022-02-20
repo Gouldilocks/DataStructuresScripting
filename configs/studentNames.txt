@@ -1,3 +1,0 @@
-// put the student here like this: First Last,GithubUsername and DELETE THIS LINE
-Duke Bartholomew,DukeBartholomew
-Braiden Hook,B-Hook

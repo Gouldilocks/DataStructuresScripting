@@ -9,9 +9,9 @@ def main():
     lines = []
     with f:
         lines = f.readlines()
-    if os.path.isfile('../../dontTouchMe/executableName.txt'):
-        os.remove('../../dontTouchMe/executableName.txt')
-    toWrite = open('../../dontTouchMe/executableName.txt', 'w')
+    if os.path.isfile('./dontTouchMe/executableName.txt'):
+        os.remove('./dontTouchMe/executableName.txt')
+    toWrite = open('./dontTouchMe/executableName.txt', 'w')
     count = 0
     for line in lines:
         if 'add_executable(' in line:
