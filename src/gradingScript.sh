@@ -46,52 +46,49 @@
     while IFS= read -r line; do
         echo "Cloning: $line"
         git clone $line
-    done < ../dontTouchMe/GitRepos.txt
+    done < ../configs/GitRepos.txt
     cd ..
 
 # Run Cmake and Make on all projects, and then run them with both easy and hard args
-    cd projects
-    for project in *; do
+    
+    for project in ./projects/*; do
     echo "Project name: $project"
 
     # Change directory into project directory, run cmake and make on the project
     cd $project
     cmake .
     make
+    cd ../..
 
     # Parse the cmakelists for the executable name
     workDire=$PWD
-    workDire+="/CMakeLists.txt"
+    workDire+="/$project/CMakeLists.txt"
     echo "path sent to python is: $workDire"
-    python3 ../../cmakeListsParser.py "$workDire"
-    execname="$(head -1 ../../dontTouchMe/executableName.txt)"
+    python3 ./src/cmakeListsParser.py "$workDire"
+    execname="$(head -1 ./dontTouchMe/executableName.txt)"
     echo "found executable name: $execname"
 
     # Run the executable found with and without arguments, using start and end for timing info
-    echo "RUNNING: $PWD/$execname$args"
+    echo "RUNNING: $PWD/$project/$execname$args"
     echo "---------------------------------------------" 
     echo "Running with dataset"
     echo "---------------------------------------------"
     start=$(date +%s)
-    timeout 5s ./$execname$args
+    timeout 5s $PWD/$project/$execname$args
     end=$(date +%s)
     runtime=$(($end-$start))
     echo "---------------------------------------------"
     echo "Running Catch now"
     echo "---------------------------------------------"
-    ./$execname
+    $PWD/$project/$execname
     if [ "$valgrind" == "$available" ]; then
     echo "---------------------------------------------"
     echo "Running Valgrind now"
     echo "---------------------------------------------"
-    timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrindEasyArgs.txt ./$execname$args
+    timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrindEasyArgs.txt $PWD/$project/$execname$args
     fi
     # Print runtime to timingData.txt
-    echo "Runtime for: $project = $runtime seconds" >> ../../timingData.txt
+    echo "Runtime for: $project = $runtime seconds" >> ../timingData.txt
 
     # Change dir to outside of project directory
-    cd ..
     done
-
-    # Change dir out of projects/
-    cd ..
