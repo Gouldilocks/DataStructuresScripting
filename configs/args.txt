@@ -1,4 +1,3 @@
-TrainingDataSetFilePath
-TestingDataSetFilePath
-TestingDataSetSentimentFilePath
-FinalOutputFile.txt
+/Users/christiangould/Downloads/20k-10k/training_unix.csv
+/Users/christiangould/Downloads/20k-10k/testing_unix.csv
+/Users/christiangould/Downloads/20k-10k/testing_sentiment_unix.csv

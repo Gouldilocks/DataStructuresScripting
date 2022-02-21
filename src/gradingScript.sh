@@ -5,8 +5,7 @@
 	valgrind="available"
 	available="available"
 	if ! [ -x "$(command -v valgrind)" ];
-	then
-	    # Notify user that valgrind is not installed
+	then # Notify user that valgrind is not installed
 	    echo "---------------------------------------------"
 	    echo "Valgrind is not installed, not running valgrind commands"
 	    echo "To install on linux, use the command: sudo apt-get install valgrind"
@@ -51,7 +50,7 @@
 
 # Run Cmake and Make on all projects, and then run them with both easy and hard args
     
-    for project in ./projects/*; do
+    for project in projects/*; do
     echo "Project name: $project"
 
     # Change directory into project directory, run cmake and make on the project
@@ -67,14 +66,16 @@
     python3 ./src/cmakeListsParser.py "$workDire"
     execname="$(head -1 ./dontTouchMe/executableName.txt)"
     echo "found executable name: $execname"
+    outfileName=" $PWD/$project/gradingFile.txt"
+    echo "output: $outfileName"
 
     # Run the executable found with and without arguments, using start and end for timing info
-    echo "RUNNING: $PWD/$project/$execname$args"
+    echo "RUNNING: $PWD/$project/$execname$args$outfileName"
     echo "---------------------------------------------" 
     echo "Running with dataset"
     echo "---------------------------------------------"
     start=$(date +%s)
-    timeout 5s $PWD/$project/$execname$args
+    timeout 5s $PWD/$project/$execname$args$outfileName
     end=$(date +%s)
     runtime=$(($end-$start))
     echo "---------------------------------------------"
@@ -85,7 +86,7 @@
     echo "---------------------------------------------"
     echo "Running Valgrind now"
     echo "---------------------------------------------"
-    timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrindEasyArgs.txt $PWD/$project/$execname$args
+    timeout 5s valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --verbose --log-file=valgrindEasyArgs.txt $PWD/$project/$execname$args$outfileName
     fi
     # Print runtime to timingData.txt
     echo "Runtime for: $project = $runtime seconds" >> ../timingData.txt
