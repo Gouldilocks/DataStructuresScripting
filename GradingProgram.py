@@ -9,6 +9,6 @@ print("Starting the cmake project runner, will start by pulling from git")
 subprocess.call('./src/gradingScript.sh')
 
 # Run the grading assistant
-import src.canvasGrader
+# import src.canvasGrader
 
 print("Grading Program Has Finished.")
