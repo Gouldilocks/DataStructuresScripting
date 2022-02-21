@@ -1,5 +1,11 @@
 # DataStructuresScripting
 Script used for quicker grading of data scructures students' projects
+ 
+NOTE: If you would like to use the experimental canvas-integrated version, clone the repo and then use
+```
+git checkout experimental
+```
+to change to that version.
 
 ## Setup
 If you are not running on a mac or linux machine, figure it out with powershell or something. Windows is bad. Anyways:
