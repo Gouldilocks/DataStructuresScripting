@@ -1,3 +1,2 @@
 /Users/christiangould/Downloads/PA02/book.txt
 /Users/christiangould/Downloads/PA02/terms.txt
-outputGould.txt
