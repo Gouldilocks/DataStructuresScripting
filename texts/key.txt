@@ -1,0 +1,14 @@
+[C]
+could not: 11, 20, 25, 28, 30
+
+[D]
+dumbledore: 8, 10, 14, 16, 17, 19, 20, 30, 40
+Note: Page 17 and 20 is optional because it is dumbledore's in the input file...Don't take points off if they miss them.
+
+[P]
+phineas nigellus: 8, 11, 25
+portraits: 3, 16, 40
+prophecy: 17
+
+[S]
+sirius: 5, 25, 28
